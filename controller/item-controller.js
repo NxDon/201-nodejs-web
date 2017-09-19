@@ -2,7 +2,7 @@ const HTTPCode = require('../config/constants')
 const itemModel = require('../models/item');
 
 
-export default class ItemController {
+module.exports= class ItemController {
     getAll(req, res, next) {
         itemModel.find({}).exec((e, data) => {
             if (e) {

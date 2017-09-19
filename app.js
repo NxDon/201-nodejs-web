@@ -1,8 +1,10 @@
-import mongoose from 'mongoose';
-import express from 'express';
-import config from 'config';
-import router from './router';
-import bodyParser from 'body-parser'
+
+
+const mongoose = require('mongoose');
+const express = require('express');
+const config = require('config');
+const router = require('./router');
+const bodyParser = require('body-parser');
 
 mongoose.connect(config.get('mongoUri'));
 
@@ -22,3 +24,5 @@ router(app);
 app.listen(config.get('httpPort'), ()=> {
     console.log('server started at http://localhost:' + config.get('httpPort'));   // eslint-disable-line no-console
 })
+
+module.exports = app;
