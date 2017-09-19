@@ -1,10 +1,7 @@
-var chai = require('chai');
+const chai = require('chai');
 const supertest = require('supertest');
 const app = require('../app');
 const request = supertest(app);
-
-
-//var kraken = require('kraken-js');
 
 var assert = chai.assert;
 

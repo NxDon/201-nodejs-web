@@ -1,6 +1,5 @@
-
 var Router = require('express');
-var ItemController = require('../../controller/item-controller');
+var ItemController = require('../../controller/item_controller');
 
 const router = Router();
 const itemCtrl = new ItemController();
