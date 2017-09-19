@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import express from 'express';
 import config from 'config';
 import router from './router';
+import bodyParser from 'body-parser'
 
 mongoose.connect(config.get('mongoUri'));
 
@@ -12,6 +13,9 @@ app.get('/', (req, res)=> {
         'hello': 'world'
     })
 })
+
+//解析post body
+app.use(bodyParser.json());
 
 router(app);
 
