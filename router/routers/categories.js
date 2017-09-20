@@ -7,5 +7,6 @@ const cateCtrl = new CategoryContorller();
 router.get('/',cateCtrl.getAllCategories);
 router.get('/:cateId',cateCtrl.getOneCategory);
 router.post('/', cateCtrl.createOneCategory);
+router.put('/:cateId', cateCtrl.updateOneCategory);
 
 module.exports = router;

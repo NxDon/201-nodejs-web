@@ -35,4 +35,18 @@ module.exports = class CateController {
             return res.status(HTTPCode.CREATED).send({uri: `Categories/${data._id}`});
         })
     }
+
+    updateOneCategory(req,res,next){
+        const id = req.params.cateId;
+        const newValue = req.body;
+        cateModel.findByIdAndUpdate(id,newValue,(e,data) => {
+            if(e){
+                return next(e);
+            }
+            if (!data) {
+                return res.sendStatus(HTTPCode.NOT_FOUND);
+            }
+            return res.sendStatus(HTTPCode.NO_CONTENT);
+        })
+    }
 }
