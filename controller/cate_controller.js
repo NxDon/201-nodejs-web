@@ -15,7 +15,7 @@ module.exports = class CateController {
     }
 
     getOneCategory(req, res, next) {
-        const id = req.para
+        const id = req.params.cateId;
         cateModel.findById(id).exec((e, data) => {
             if (e) {
                 return next(e)
