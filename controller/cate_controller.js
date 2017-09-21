@@ -32,7 +32,7 @@ module.exports = class CateController {
             if (err) {
                 return next(err);
             }
-            return res.status(HTTPCode.CREATED).send({uri: `Categories/${data._id}`});
+            return res.status(HTTPCode.CREATED).send(data);
         })
     }
 
