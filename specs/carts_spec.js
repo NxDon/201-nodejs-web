@@ -27,10 +27,10 @@ describe('/carts', function () {
             "name":"duan",
             "items":[{
                 "count":10,
-                "_id":"59c21ea2d4f47a60d0af89b9"
+                "item":"59c21ea2d4f47a60d0af89b9"
             },{
                 "count":99,
-                "_id":"59c21ea2d4f47a60d0af89b8"
+                "item":"59c21ea2d4f47a60d0af89b8"
             }]
         }).set('Accept', 'application/json').expect(202)
             .end(function (err, res) {
@@ -49,10 +49,10 @@ describe('/carts', function () {
                 "name":"duan",
                 "items":[{
                     "count":88,
-                    "_id":"59c21ea2d4f47a60d0af89b9"
+                    "item":"59c21ea2d4f47a60d0af89b9"
                 },{
                     "count":99,
-                    "_id":"59c21ea2d4f47a60d0af89b8"
+                    "item":"59c21ea2d4f47a60d0af89b8"
                 }]
             }).expect(204)
             .end(done);
@@ -68,14 +68,6 @@ describe('/carts', function () {
                 assert.isObject(res.body, 'return items object');
                 done();
             });
-    })
-
-    it('delete one cart',function (done) {
-        url = '/carts/' + id;
-        request.delete(url)
-            .set('Accept', 'application/json')
-            .expect(204)
-            .end(done);
     })
 })
 

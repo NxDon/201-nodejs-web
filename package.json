@@ -6,7 +6,8 @@
   "scripts": {
     "babel-node": "babel-node",
     "start": "nodemon --exec npm run babel-node -- app.js",
-    "test": "mocha --recursive specs/"
+    "test": "mocha --recursive specs/",
+    "refreshDatabase": "babel-node  ./config/resetDatabase.js"
   },
   "author": "",
   "license": "ISC",
