@@ -1,34 +1,34 @@
 const HTTPCode = require('../config/constants');
-const cateModel = require('../models/category');
+const cartModel = require('../models/cart');
 
-module.exports = class CateController {
-    getAllCategories(req, res, next) {
-        cateModel.find({}).exec((e, data) => {
-            if (e) {
+module.exports = class cartController{
+    getAllCarts(req,res,next){
+        cartModel.find({}).exec((e,data) => {
+            if(e) {
                 return next(e);
             }
-            if (!data) {
-                return res.sendStatus(HTTPCode.NOT_FOUND)
-            }
-            return res.status(HTTPCode.OK).send({item: data});
-        })
-    }
-
-    getOneCategory(req, res, next) {
-        const id = req.params.cateId;
-        cateModel.findById(id).exec((e, data) => {
-            if (e) {
-                return next(e)
-            }
-            if (!data) {
+            if(!data) {
                 return res.sendStatus(HTTPCode.NOT_FOUND);
             }
-            return res.status(HTTPCode.OK).send({item: data})
+            return res.send(HTTPCode.OK).send(data);
         })
     }
 
-    createOneCategory(req, res, next) {
-        cateModel.create(req.body, (err, data) => {
+    getOneCart(req,res,next){
+        const id = req.params.cartId;
+        cartModel.findById(id).exec((e,data) => {
+            if(e) {
+                return next(e);
+            }
+            if(!data){
+                return res.sendStatus(HTTPCode.NOT_FOUND);
+            }
+            return res.status(HTTPCode.OK).send(data)
+        })
+    }
+
+    createOneCart(req,res,next){
+        cartModel.create(req.body, (err, data) => {
             if (err) {
                 return next(err);
             }
@@ -36,8 +36,8 @@ module.exports = class CateController {
         })
     }
 
-    updateOneCategory(req,res,next){
-        const id = req.params.cateId;
+    updateOneCart(req,res,next){
+        const id = req.params.cartId;
         const newValue = req.body;
         cateModel.findByIdAndUpdate(id,newValue,(e,data) => {
             if(e){
@@ -50,9 +50,9 @@ module.exports = class CateController {
         })
     }
 
-    deleteOneCategory(req,res,next){
-        const id = req.params.cateId;
-        cateModel.findByIdAndRemove(id,(e,data) => {
+    deleteOneCart(req,res,next){
+        const id = req.params.cartId;
+        cartModel.findByIdAndRemove(id,(e,data) => {
             if(e){
                 return next(e);
             }
@@ -62,4 +62,5 @@ module.exports = class CateController {
             return res.status(HTTPCode.NO_CONTENT).send(data);
         })
     }
+
 }
