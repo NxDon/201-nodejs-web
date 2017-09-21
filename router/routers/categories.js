@@ -8,5 +8,6 @@ router.get('/',cateCtrl.getAllCategories);
 router.get('/:cateId',cateCtrl.getOneCategory);
 router.post('/', cateCtrl.createOneCategory);
 router.put('/:cateId', cateCtrl.updateOneCategory);
+router.delete('/:cateId',cateCtrl.deleteOneCategory);
 
 module.exports = router;

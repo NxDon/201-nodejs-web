@@ -49,4 +49,19 @@ module.exports = class CateController {
             return res.sendStatus(HTTPCode.NO_CONTENT);
         })
     }
+
+    deleteOneCategory(req,res,next){
+        const id = req.params.cateId;
+        cateModel.findByIdAndRemove(id,(e,data) => {
+            if(e){
+                return next(e);
+            }
+            if(!data) {
+                return res.sendStatus(HTTPCode.NOT_FOUND);
+            }
+            return res.status(HTTPCode.NO_CONTENT).send(data);
+        })
+    }
+
+
 }
