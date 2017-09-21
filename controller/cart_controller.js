@@ -10,7 +10,7 @@ module.exports = class cartController{
             if(!data) {
                 return res.sendStatus(HTTPCode.NOT_FOUND);
             }
-            return res.send(HTTPCode.OK).send(data);
+            return res.status(HTTPCode.OK).send(data);
         })
     }
 
@@ -39,7 +39,7 @@ module.exports = class cartController{
     updateOneCart(req,res,next){
         const id = req.params.cartId;
         const newValue = req.body;
-        cateModel.findByIdAndUpdate(id,newValue,(e,data) => {
+        cartModel.findByIdAndUpdate(id,newValue,(e,data) => {
             if(e){
                 return next(e);
             }
