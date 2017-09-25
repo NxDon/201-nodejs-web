@@ -1,10 +1,9 @@
-
-
 const mongoose = require('mongoose');
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const config = require('config');
 const router = require('./router');
-const bodyParser = require('body-parser');
 
 mongoose.connect(config.get('mongoUri'));
 
@@ -15,6 +14,8 @@ app.get('/', (req, res)=> {
         'hello': 'world'
     })
 })
+
+
 
 //解析post body
 app.use(bodyParser.json());

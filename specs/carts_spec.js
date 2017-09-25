@@ -69,6 +69,15 @@ describe('/carts', function () {
                 done();
             });
     })
+
+    it('delete one cart',function (done) {
+        url = '/carts/' + id;
+        request.delete(url)
+            .set('Accept', 'application/json')
+            .expect(204)
+            .end(done);
+    })
+
 })
 
 ;

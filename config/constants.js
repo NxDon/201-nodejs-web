@@ -5,6 +5,10 @@ module.exports = {
     NOT_FOUND: 404,
     BAD_REQUEST: 400,
 
+    USER_DATA:{
+        admin:"admin",
+        user1:"password"
+    },
     RAW_DATA: {
         Item: [{
             '_id': '587f0f2586653d19297d40c2',
