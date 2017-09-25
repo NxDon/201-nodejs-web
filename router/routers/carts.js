@@ -5,8 +5,8 @@ const islogin = require('../../middleware/login-auth');
 const router = Router();
 const cartCtrl = new CartContorller();
 
-router.get('/', cartCtrl.getAllCarts);
-router.get('/:cartId', cartCtrl.getOneCart);
+router.get('/',islogin, cartCtrl.getAllCarts);
+router.get('/:cartId',islogin,cartCtrl.getOneCart);
 router.post('/', islogin, cartCtrl.createOneCart);
 router.put('/:cartId', islogin, cartCtrl.updateOneCart);
 router.delete('/:cartId', islogin, cartCtrl.deleteOneCart);

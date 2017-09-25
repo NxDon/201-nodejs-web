@@ -4,6 +4,7 @@ module.exports = {
     NO_CONTENT: 204,
     NOT_FOUND: 404,
     BAD_REQUEST: 400,
+    PREMISSTION_DEINED:403,
 
     USER_DATA:{
         admin:"admin",
@@ -42,7 +43,7 @@ module.exports = {
         Cart:
             [{
                 '_id': '587f0f2586653d19297d40c6',
-                name: 'duan',
+                user: 'user1',
                 items: [
                     {
                         item: '587f0f2586653d19297d40c2',
@@ -55,6 +56,19 @@ module.exports = {
                         item: '587f0f2586653d19297d40c4',
                         count: 1
                     }
+                ]
+            },{
+                '_id': '587f0f2586653d19297d40c7',
+                user: 'user2',
+                items: [
+                    {
+                        item: '587f0f2586653d19297d40c2',
+                        count: 11
+                    }, {
+                        item: '587f0f2586653d19297d40c3',
+                        count: 99
+                    }
+
                 ]
             }]
     }

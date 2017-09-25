@@ -16,7 +16,7 @@ describe('/carts', function () {
     it('get all carts', function (done) {
         request.get('/carts')
             .set('Accept', 'application/json')
-            .expect(200)
+            .set('Authorization', authStr).expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function (err, res) {
                 if (err) return done(err);
@@ -65,7 +65,7 @@ describe('/carts', function () {
         url = '/carts/' + id;
         request.get(url)
             .set('Accept', 'application/json')
-            .expect(200)
+            .set('Authorization', authStr).expect(200)
             .end(function (err, res) {
                 if (err) return done(err);
                 assert.isObject(res.body, 'return items object');
