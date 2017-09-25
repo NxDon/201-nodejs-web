@@ -5,6 +5,9 @@ const request = supertest(app);
 
 var assert = chai.assert;
 
+var id = 0;
+var authStr = "Basic YWRtaW46YWRtaW4=";
+
 describe('/carts', function () {
     before(() => {
         var id = 0;
@@ -32,7 +35,7 @@ describe('/carts', function () {
                 "count":99,
                 "item":"59c21ea2d4f47a60d0af89b8"
             }]
-        }).set('Accept', 'application/json').expect(202)
+        }).set('Accept', 'application/json').set('Authorization', authStr).expect(202)
             .end(function (err, res) {
                     assert.isObject(res.body, 'create cart');
                     id = res.body._id;
@@ -54,7 +57,7 @@ describe('/carts', function () {
                     "count":99,
                     "item":"59c21ea2d4f47a60d0af89b8"
                 }]
-            }).expect(204)
+            }).set('Authorization', authStr).expect(204)
             .end(done);
     })
 
@@ -74,7 +77,7 @@ describe('/carts', function () {
         url = '/carts/' + id;
         request.delete(url)
             .set('Accept', 'application/json')
-            .expect(204)
+            .set('Authorization', authStr).expect(204)
             .end(done);
     })
 
