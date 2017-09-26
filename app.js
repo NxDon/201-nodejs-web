@@ -22,8 +22,10 @@ app.use(bodyParser.json());
 
 router(app);
 
-app.listen(config.get('httpPort'), ()=> {
-    console.log('server started at http://localhost:' + config.get('httpPort'));   // eslint-disable-line no-console
+let port = process.env.HTTP_PORT || 8000;
+
+app.listen(port, ()=> {
+    console.log('server started at http://localhost:' + port);   // eslint-disable-line no-console
 })
 
 module.exports = app;
